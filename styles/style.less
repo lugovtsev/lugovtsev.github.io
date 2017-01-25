@@ -48,19 +48,33 @@ h1 {
   margin: 0 auto;
 }
 
+::-webkit-input-placeholder {color:#fff;}
+::-moz-placeholder          {color:#fff;}/* Firefox 19+ */
+:-moz-placeholder           {color:#fff;}/* Firefox 18- */
+:-ms-input-placeholder      {color:#fff;}
+
 .add-task {
   font-size: 0;
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
+  &::before {
+    content: '+';
+    position: absolute;
+    left: 5px;
+    top: 56px;
+    color: #fff;
+    font-size: 27px;
+  }
   input {
+    position: relative;
     border-radius: 3px;
     width: 77%;
     height: 40px;
     border: 3px solid #000;
-    background-color: #555;
     color: #fff;
-    font-size: 18px;
+    background-color: transparent;
+    font-size: 24px;
     padding: 0 20px;
     box-sizing: border-box;
     &:focus {
