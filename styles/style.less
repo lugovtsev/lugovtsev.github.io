@@ -7,7 +7,28 @@ html {
 }
 
 body {
+  font-family: 'Bitter', serif;
+  height: 100%;
   margin: 0;
+  position: relative;
+  background-image: url(../img/wood.png);
+}
+body::after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: -moz-linear-gradient(bottom,  rgba(51,8,104,0.27) 0%, rgba(101,200,233,0.27) 100%);
+  background: -webkit-linear-gradient(bottom,  rgba(51,8,104,0.27) 0%,rgba(101,200,233,0.27) 100%);
+  background: linear-gradient(to top,  rgba(51,8,104,0.27) 0%,rgba(101,200,233,0.27) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45330868', endColorstr='#4565c8e9',GradientType=0 );
+  z-index: 1;
+}
+
+main {
+  padding-top: 150px;
 }
 
 p {
@@ -18,12 +39,13 @@ h1 {
   margin: 10px 0;
 }
 
+
+
 .content {
+  position: relative;
+  z-index: 10;
   width: 650px;
-  margin: 150px auto 0;
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #31aaff;
+  margin: 0 auto;
 }
 
 .add-task {
