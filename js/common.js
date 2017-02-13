@@ -44,7 +44,7 @@ $(document).ready(function() {
         $(this).addClass('hidden');
       }
     });
-    $(this).html('Show all').attr('id','show-all');
+    $(this).attr('id','show-all').css('color','#f5e4aa');
   });
 
   $('body').on('click', '#show-all', function() {
@@ -53,7 +53,7 @@ $(document).ready(function() {
         $(this).removeClass('hidden');
       }
     });
-    $(this).html('Only important').attr('id','show-important-tasks');
+    $(this).attr('id','show-important-tasks').css('color','#fff');
   });
 
   //task adding function

@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font-family: 'Bitter', serif;
+  font-family: 'Merriweather', serif;
   height: 100%;
   margin: 0;
   position: relative;
@@ -37,6 +37,12 @@ p {
 
 h1 {
   margin: 10px 0;
+  color: #fff;
+  font-size: 36px;
+  span {
+    font-size: 28px;
+    margin-left: 5px;
+  }
 }
 
 
@@ -69,19 +75,36 @@ h1 {
   input {
     position: relative;
     border-radius: 3px;
-    width: 77%;
+    width: ~'calc(100% - 50px)';
     height: 40px;
-    border: 3px solid #000;
+    border: none;
     color: #fff;
     background-color: transparent;
-    font-size: 24px;
-    padding: 0 20px;
+    font-size: 22px;
+    padding: 0 30px;
     box-sizing: border-box;
     &:focus {
       outline: none;
+      border: 1px solid #fff;
+      background-color: rgba(255, 255, 255, 0.1);
+      &::-webkit-input-placeholder { color:transparent; }
+      &:-moz-placeholder { color:transparent; }
+      &::-moz-placeholder { color:transparent; }
+      &:-ms-input-placeholder { color:transparent; }
     }
   }
-  button {
+  span {
+    font-size: 22px;
+    color: #fff;
+    background-color: rgba(100, 88, 115, 0.9);
+    border-radius: 5px;
+    padding: 8px 9px 9px;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(100, 88, 115, 1);
+    }
+  }
+  /*button {
     border-radius: 3px;
     background-color: #555;
     color: #fff;
@@ -96,7 +119,7 @@ h1 {
     &:hover {
       background-color: #333;
     }
-  }
+  }*/
 }
 
 .task-item {
