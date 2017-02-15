@@ -16,20 +16,18 @@
       <div class="add-task">
         <input type="text" id="add-input" placeholder="Add new task...">
         <span id="show-important-tasks" class="icon-star-full">
-        <!-- <button id="add-button">Add</button> -->
       </div>
       <div id="tasks-list">
-        <div class="task-item"><p><input type="checkbox"> Buy something</p><span class="star choosen"></span></div>
-        <div class="task-item"><p><input type="checkbox"> Read the book</p><span class="star"></span></div>
+        <div class="task-item"><input type="checkbox"> <div class="task-item__text"><p>Buy something</p><span class="star icon-star-full"></span></div></div>
+        <div class="task-item"><input type="checkbox"> <div class="task-item__text"><p>Read the book</p><span class="star icon-star-empty"></span></div></div>
       </div>
       <div class="controls">
-        <span id="show-completed-tasks">Completed tasks</span>
-        <span id="remove-completed-tasks">Remove completed tasks</span>
-        <span id="show-important-tasks">Only important</span>
+        <span id="show-completed-tasks">Show completed tasks</span>
+        <span id="remove-completed-tasks" class="icon-bin">
       </div>
       <div id="completed-tasks-list" class="hidden">
-        <div class="task-item done"><p><input type="checkbox" checked> Play the game</p><span class="star"></span></div>
-        <div class="task-item done"><p><input type="checkbox" checked> Do exercise</p><span class="star"></span></div>
+        <div class="task-item done"><input type="checkbox" checked> <div class="task-item__text"><p>Play the game</p><span class="star icon-star-full"></span></div></div>
+        <div class="task-item done"><input type="checkbox" checked> <div class="task-item__text"><p>Do exercise</p><span class="star icon-star-empty"></span></div></div>
       </div>
     </div>
 </main>

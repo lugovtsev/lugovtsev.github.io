@@ -10,8 +10,14 @@ $(document).ready(function() {
 
   //mark as important
   $('body').on('click', '#tasks-list .star', function() {
-    $(this).toggleClass('choosen');
-    if ($(this).hasClass('choosen')) {
+    //$(this).toggleClass('choosen');
+    if ($(this).hasClass('icon-star-full')) {
+      $(this).removeClass('icon-star-full').addClass('icon-star-empty');
+    }
+    else {
+      $(this).removeClass('icon-star-empty').addClass('icon-star-full');
+    }
+    if ($(this).hasClass('icon-star-full')) {
       $('#tasks-list').prepend($(this).parents('.task-item'));
     }
     else {
@@ -32,6 +38,10 @@ $(document).ready(function() {
   //events for control buttons
   $('#show-completed-tasks').click(function() {
     $('#completed-tasks-list').toggleClass('hidden');
+    if ($('#completed-tasks-list').hasClass('hidden'))
+      $(this).text('Show completed tasks');
+    else
+      $(this).text('Hide completed tasks');
   });
 
   $('#remove-completed-tasks').click(function() {
@@ -40,7 +50,7 @@ $(document).ready(function() {
 
   $('body').on('click', '#show-important-tasks', function() {
     $('#tasks-list .task-item').each(function(elem) {
-      if (!$(this).find('.star').hasClass('choosen')) {
+      if (!$(this).find('.star').hasClass('icon-star-full')) {
         $(this).addClass('hidden');
       }
     });
@@ -49,9 +59,7 @@ $(document).ready(function() {
 
   $('body').on('click', '#show-all', function() {
     $('#tasks-list .task-item').each(function(elem) {
-      if (!$(this).find('.star').hasClass('choosen')) {
-        $(this).removeClass('hidden');
-      }
+      $(this).removeClass('hidden');
     });
     $(this).attr('id','show-important-tasks').css('color','#fff');
   });
@@ -59,9 +67,10 @@ $(document).ready(function() {
   //task adding function
   function addTask() {
     let addTextInput = $('#add-input');
-    if (addTextInput.val() != '')
-    $('#tasks-list').append('<div class="task-item"><p><input type="checkbox"> ' +addTextInput.val()+ '</p><span class="star"></span></div>');
-    addTextInput.val('');
+    if (addTextInput.val() != '') {
+      $('#tasks-list').append('<div class="task-item"><input type="checkbox"> <div class="task-item__text"><p>' +addTextInput.val()+ '</p><span class="star icon-star-empty"></span></div></div>');
+      addTextInput.val('');
+    }
   }
 
 });
