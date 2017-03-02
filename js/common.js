@@ -1,8 +1,11 @@
 "use strict";
 
+let $ = require('jquery');
+
 $(document).ready(function() {
   //events for adding new task
   $('#add-input').keyup(function(e) {
+    alert('e');
     if (e.keyCode == 13) addTask();
   });
 
