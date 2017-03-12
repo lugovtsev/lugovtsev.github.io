@@ -10,6 +10,8 @@ const newer = require('gulp-newer');
 const notify = require('gulp-notify');
 const multipipe = require('multipipe');
 const uglify = require('gulp-uglify');
+const ftp = require('gulp-ftp');
+const gutil = require('gulp-util');
 const browserSync = require('browser-sync').create();
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
@@ -55,6 +57,7 @@ gulp.task('watch', function() {
   gulp.watch('frontend/styles/*.less', gulp.series('styles'));
   gulp.watch('frontend/assets/**/*.*', gulp.series('assets'));
   gulp.watch('frontend/js/*.js', gulp.series('scripts'));
+//  gulp.watch('public/**/*.*', gulp.series('ftp'));
 });
 
 gulp.task('serve', function() {
@@ -72,3 +75,14 @@ gulp.task('build', gulp.series(
 gulp.task('dev',
     gulp.series('build', gulp.parallel('watch', 'serve'))
 );
+
+gulp.task('ftp', function() {
+  return gulp.src('public/**/*.*')
+      .pipe(ftp({
+          host: 'lugovc.beget.tech',
+          user: 'lugovc_todolist',
+          pass: '9I%50}}*'
+        }))
+      .pipe(debug({title: 'to-ftp'}))
+      .pipe(gutil.noop());
+});
