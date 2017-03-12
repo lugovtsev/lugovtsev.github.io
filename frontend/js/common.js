@@ -1,5 +1,4 @@
 "use strict";
-const $ = require('jquery');
 
 $(document).ready(function() {
   //events for adding new task
@@ -67,7 +66,7 @@ $(document).ready(function() {
 
   //task adding function
   function addTask() {
-    let addTextInput = $('#add-input');
+    var addTextInput = $('#add-input');
     if (addTextInput.val() != '') {
       $('#tasks-list').append('<div class="task-item"><input type="checkbox"> <div class="task-item__text"><p>' +addTextInput.val()+ '</p><span class="star icon-star-empty"></span></div></div>');
       addTextInput.val('');
